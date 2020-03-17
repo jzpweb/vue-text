@@ -12,6 +12,7 @@
            <router-link to="/sell">商家</router-link>
          </div>
        </div> -->
+       <h1>修改代码了哦</h1>
        <ul>
          <li v-for="(temp,index) in goods">
            {{temp.name}}|{{temp.age}}
