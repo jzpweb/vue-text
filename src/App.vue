@@ -69,7 +69,43 @@ export default {
           this.cart.push({...good,count:1});
         }
   },
+    firstMe(){
+       let b=[2,3,43,24,56,433,34];
+       b.sort((a,b)=>a-b//箭头函数中函数体中只有一句话而且是return则可以省略{}
+       );
+       function d(a){
+          return a*4;
+       };
+       let c=a=>a*4;//其中如果有且仅有一个参数则可以省略（）
+       console.log(c(4));
+    },
+    myarr(){
+      // 1.map 映射
+      let a=[23,56,75,84,34,93];
+      let b=a.map(item=>item>=60);
+      console.log(b);
+
+      // 2.filter 过滤出来符合条件的值
+      let c=a.filter(item=>item>=60);
+      console.log(c);
+
+      //3.reduce 汇总(多了一个参数temp，临时变量为前面值的和)
+      // eg:做一个求平均值的操作
+      let avg=a.reduce((temp,item,index)=>{
+             if(index<a.length-1){
+               return temp+item;
+             }else{
+               return (temp+item)/a.length;
+             }
+      });
+      console.log(avg);
+    }
   },
+mounted(){
+  //es6
+  // this.firstMe();//箭头函数
+  this.myarr();//数组
+},
   created() {
     this.$axios.get('/api/seller').then((res)=>{
                 res = res.data;
